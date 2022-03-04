@@ -40,6 +40,42 @@ function bondTemplate(film){
 </div>`;
 }
 
+$(document).ready(function() {  
+
+	$('.category').click(function(e){
+        e.preventDefault(); //stop default action of the link
+		cat = $(this).attr("href");  //get category from URL
+		
+  var request = $.ajax({
+    url: "api.php?cat=" + cat,
+    method: "GET",
+    dataType: "json"
+  });
+  request.done(function( data) {
+    console.log(data);
+
+    //Place the title of the webservice on page
+    $("#filmtitle").html(data.title);
+
+    //clear previous films
+    $("#films").html("")
+
+    //load each film via template into div
+    $.each(data.films,function(key,value){
+      let str = bondTemplate(value);
+      $("<div></div>").html(str).appendTo("#films");
+    });
+    
+
+	
+ //load data on page so we can see it
+    //$("#output").text(JSON.stringify(data));
+    /*
+    let myData = JSON.stringify(data,null,4);
+
+    myData = "<pre>" + myData + "</pre>";
+    $("#output").html(myData);
+    */
 </body>
 
 </html>
