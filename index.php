@@ -18,8 +18,8 @@ body {font-family:georgia;}
     top:10px;
   }
 
-
-   </style>
+  
+</style>
 <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -40,6 +40,7 @@ function bondTemplate(film){
 </div>`;
 }
 
+  
 $(document).ready(function() {  
 
 	$('.category').click(function(e){
@@ -66,8 +67,16 @@ $(document).ready(function() {
       $("<div></div>").html(str).appendTo("#films");
     });
     
+    //load data on page so we can see it
+    //$("#output").text(JSON.stringify(data));
+    /*
+    let myData = JSON.stringify(data,null,4);
 
-		});
+    myData = "<pre>" + myData + "</pre>";
+    $("#output").html(myData);
+    */
+    
+  });
   request.fail(function(xhr, status, error) {
                //Ajax request failed.
                var errorMessage = xhr.status + ': ' + xhr.statusText
@@ -76,7 +85,9 @@ $(document).ready(function() {
 	});
 });	
 
-	</script>
+
+	
+</script>
 </head>
 	<body>
 	<h1>Bond Web Service</h1>
@@ -86,15 +97,7 @@ $(document).ready(function() {
 		<div id="films">
 			<p>Films will go here</p>
 		</div>
- //load data on page so we can see it
-    //$("#output").text(JSON.stringify(data));
-    /*
-    let myData = JSON.stringify(data,null,4);
-
-    myData = "<pre>" + myData + "</pre>";
-    $("#output").html(myData);
-    */
-
+    
 <!--
 <div class="film">
   <b>Film: </b> 1<br />
@@ -110,8 +113,7 @@ $(document).ready(function() {
   <div class="pic"><img src="thumbnails/dr-no.jpg" /></div>
 </div>
     -->
-
+    
 		<div id="output">Results go here</div>
-</body>
-
+	</body>
 </html>
