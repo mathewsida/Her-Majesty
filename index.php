@@ -67,6 +67,14 @@ $(document).ready(function() {
     });
     
 
+		});
+  request.fail(function(xhr, status, error) {
+               //Ajax request failed.
+               var errorMessage = xhr.status + ': ' + xhr.statusText
+               alert('Error - ' + errorMessage);
+    });
+	});
+});	
 	
  //load data on page so we can see it
     //$("#output").text(JSON.stringify(data));
