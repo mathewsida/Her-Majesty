@@ -111,7 +111,7 @@ $(document).ready(function() {
 </div>
     -->
 
-		
+		<div id="output">Results go here</div>
 </body>
 
 </html>
